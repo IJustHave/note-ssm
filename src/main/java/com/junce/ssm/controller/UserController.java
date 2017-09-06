@@ -13,9 +13,6 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by Zhangxq on 2016/7/15.
- */
 
 @Controller
 @RequestMapping("/user")

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junce.ssm.dao.NoteDao">
+
+    <insert id="addNote" parameterType="com.junce.ssm.model.Note">
+        INSERT  INTO
+        eip_notes(note_id,note_title,note_create_time,note_content,user_id,note_status)
+        VALUES
+        (#{noteId},#{noteTitle},#{noteCreateDate},#{noteContent},#{userId},#{noteStatus})
+    </insert>
+
+
+    <resultMap id="getNotes" type="java.util.HashMap">
+        <result column="note_id" property="noteId" jdbcType="VARCHAR"/>
+        <result column="note_title" property="noteTitle" jdbcType="VARCHAR"/>
+        <result column="note_content" property="noteContent" jdbcType="VARCHAR"/>
+        <result column="note_create_date" property="noteCreateTime" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getNotes" parameterType="com.junce.ssm.model.NoteQuery" resultMap="getNotes">
+      SELECT * FROM eip_notes  WHERE user_id=#{userId} limit #{start},#{limit}
+    </select>
+
+
+    <select id="getNoteCount" parameterType="String" resultType="Integer">
+
+        SELECT COUNT(*) C FROM eip_notes WHERE user_id=#{userId}
+
+    </select>
+
+
+</mapper>
