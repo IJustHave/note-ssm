@@ -2,7 +2,7 @@ package com.junce.ssm.model;
 
 import java.util.Date;
 
-public class User {
+public class UserBean {
 
     private String userId;
     private String userName;
@@ -53,7 +53,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserBean{" +
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userPhone='" + userPhone + '\'' +

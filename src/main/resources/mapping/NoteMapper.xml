@@ -4,11 +4,10 @@
 
     <insert id="addNote" parameterType="com.junce.ssm.model.Note">
         INSERT  INTO
-        eip_notes(note_id,note_title,note_create_time,note_content,user_id,note_status)
+        eip_note(note_id,note_title,note_create_time,note_content,user_id,note_status)
         VALUES
         (#{noteId},#{noteTitle},#{noteCreateDate},#{noteContent},#{userId},#{noteStatus})
     </insert>
-
 
     <resultMap id="getNotes" type="java.util.HashMap">
         <result column="note_id" property="noteId" jdbcType="VARCHAR"/>
@@ -18,15 +17,11 @@
     </resultMap>
 
     <select id="getNotes" parameterType="com.junce.ssm.model.NoteQuery" resultMap="getNotes">
-      SELECT * FROM eip_notes  WHERE user_id=#{userId} limit #{start},#{limit}
+      SELECT * FROM eip_note  WHERE user_id=#{userId} limit #{start},#{limit}
     </select>
-
 
     <select id="getNoteCount" parameterType="String" resultType="Integer">
-
-        SELECT COUNT(*) C FROM eip_notes WHERE user_id=#{userId}
-
+        SELECT COUNT(*) C FROM eip_note WHERE user_id=#{userId}
     </select>
-
 
 </mapper>
