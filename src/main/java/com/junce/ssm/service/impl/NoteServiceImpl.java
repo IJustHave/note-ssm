@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class NoteServiceImp implements NoteService {
+public class NoteServiceImpl implements NoteService {
 
     @Resource
     NoteDao dao;
